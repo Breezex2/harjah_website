@@ -9,7 +9,9 @@ function Navbar() {
 
   return (
     <nav className="navbar">
-      <div className="nav-logo">Company Name</div>
+      <div className="nav-logo">
+        <img src="/logo192.png" alt="Company Logo" className="logo" style={{ width: "40px", height: "40px" }} />
+      </div>
       <div className="nav-links">
         <button onClick={() => scrollToSection("home")}>Home</button>
         <button onClick={() => scrollToSection("services")}>Services</button>
@@ -26,8 +28,15 @@ function App() {
       <Navbar />
 
       <section id="home" className="section home-section">
-        <h1>Welcome to Our Company</h1>
-        <p>We provide innovative solutions for your business needs</p>
+        {/* Add the video element */}
+        <video autoPlay loop muted className="background-video">
+          <source src="/video.mp4" type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
+        <div className="home-content">
+          <h1>Welcome to Our Company</h1>
+          <p>We provide innovative solutions for your business needs</p>
+        </div>
       </section>
 
       <section id="services" className="section services-section">
