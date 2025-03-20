@@ -10,7 +10,7 @@ function Navbar() {
   return (
     <nav className="navbar">
       <div className="nav-logo">
-        <img src="/logo192.png" alt="Company Logo" className="logo" style={{ width: "40px", height: "40px" }} />
+        <img src="\CompanyLogo.png" alt="Company Logo" className="logo" style={{ width: "50px", height: "50px" }} />
       </div>
       <div className="nav-links">
         <button onClick={() => scrollToSection("home")}>Home</button>
