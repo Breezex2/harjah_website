@@ -1,10 +1,18 @@
-import React from "react";
+import React, { useState } from "react";
 import "./App.css";
 
+
 function Navbar() {
+  const [language, setLanguage] = useState("en");
   const scrollToSection = (sectionId) => {
     const element = document.getElementById(sectionId);
     element.scrollIntoView({ behavior: "smooth" });
+  };
+
+  const toggleLanguage = () => {
+    setLanguage((prevLanguage) => (prevLanguage === "en" ? "ar" : "en"));
+    document.documentElement.lang = language === "en" ? "ar" : "en";
+    document.body.dir = language === "en" ? "rtl" : "ltr";
   };
 
   return (
@@ -17,6 +25,17 @@ function Navbar() {
         <button onClick={() => scrollToSection("services")}>Services</button>
         <button onClick={() => scrollToSection("about")}>About</button>
         <button onClick={() => scrollToSection("contact")}>Contact Us</button>
+      </div>
+      <div
+        className="language-switch"
+        style={{
+          display: "flex",
+          justifyContent: language === "en" ? "flex-end" : "flex-start",
+        }}
+      >
+        <button onClick={toggleLanguage} className="language-btn">
+          {language === "en" ? "Arabic" : "English"}
+        </button>
       </div>
     </nav>
   );
