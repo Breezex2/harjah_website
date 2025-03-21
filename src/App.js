@@ -24,7 +24,7 @@ function Navbar() {
         <button onClick={() => scrollToSection("home")}>Home</button>
         <button onClick={() => scrollToSection("services")}>Services</button>
         <button onClick={() => scrollToSection("about")}>About</button>
-        <button onClick={() => scrollToSection("contact")}>Contact Us</button>
+        <button onClick={() => scrollToSection("contact")}>Get in touch </button>
       </div>
       <div
         className="language-switch"
