@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import "./App.css";
-import { FaEnvelope, FaPhoneAlt, FaMapMarkerAlt } from 'react-icons/fa';  // Import the icons you need
+import { FaEnvelope, FaPhoneAlt, FaMapMarkerAlt } from 'react-icons/fa';
+
 
 function Navbar() {
   const [language, setLanguage] = useState("en");
