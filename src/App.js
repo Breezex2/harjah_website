@@ -192,13 +192,13 @@ function App() {
 
   <a href="tel:+1234567890" className="contact-item">
     <FaPhoneAlt />
-    <span>+1234567890</span>
+    <span>+968 97760250</span>
   </a>
 
-  <a href="https://maps.google.com" className="contact-item">
-    <FaMapMarkerAlt />
-    <span>Our Office Location</span>
-  </a>
+  <a href="https://maps.app.goo.gl/u4Ta3Kyhirgx4BDs8" className="contact-item">
+  <FaMapMarkerAlt />
+  <span>Our Office Location</span>
+</a>
   </div>
 </div>
 
