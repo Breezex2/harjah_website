@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "./App.css";
+import { FaEnvelope, FaPhoneAlt, FaMapMarkerAlt } from 'react-icons/fa';  // Import the icons you need
 
 
 function Navbar() {
@@ -89,12 +90,49 @@ function App() {
       </section>
 
       <section id="contact" className="section contact-section">
-        <h2>Contact Us</h2>
-        <div className="contact-form">
-          <input type="text" placeholder="Name" />
-          <input type="email" placeholder="Email" />
-          <textarea placeholder="Message"></textarea>
-          <button className="submit-btn">Send Message</button>
+  {/* Get in Touch Header */}
+  <div className="get-in-touch">
+    <h2>Contact Us</h2>
+  </div>
+
+  <div className="contact-container">
+    {/* Company Message Section */}
+    <div className="company-message">
+      <h3>Company Message</h3>
+      <p>
+        We value your time and interest in our services. Please feel free to
+        reach out with any questions or requests.
+      </p>
+      <div className="social-icons">
+
+      <a href="mailto:info@company.com" className="contact-item">
+    <FaEnvelope />
+    <span>info@company.com</span>
+  </a>
+
+  <a href="tel:+1234567890" className="contact-item">
+    <FaPhoneAlt />
+    <span>+1234567890</span>
+  </a>
+
+  <a href="https://maps.google.com" className="contact-item">
+    <FaMapMarkerAlt />
+    <span>Our Office Location</span>
+  </a>
+  </div>
+</div>
+
+          {/* Contact Form */}
+          <div className="contact-form-box">
+            <div className="contact-form">
+              <input type="text" placeholder="First Name" />
+              <input type="text" placeholder="Last Name" />
+              <input type="email" placeholder="Business Email" />
+              <input type="text" placeholder="Phone Number" />
+              <textarea placeholder="How can we help you?"></textarea>
+              <button className="get-in-touch-btn">Get in Touch</button>
+            </div>
+          </div>
         </div>
       </section>
     </div>
