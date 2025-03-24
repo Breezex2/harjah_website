@@ -1,17 +1,60 @@
-  import React from "react";
-  import { BrowserRouter as Router } from "react-router-dom";
-  import NavBar from "./components/NavBar"; // Importing NavBar component
-  import "bootstrap/dist/css/bootstrap.min.css"; // Bootstrap CSS
-  import { FaEnvelope, FaPhoneAlt, FaMapMarkerAlt } from "react-icons/fa"; // React Icons
+import React, { useState } from "react";
+import "bootstrap/dist/css/bootstrap.min.css";
+import "./App.css";
+import { FaEnvelope, FaPhoneAlt, FaMapMarkerAlt } from 'react-icons/fa';  // Import the icons you need
 
-  import "./App.css";
+function Navbar() {
+  const [language, setLanguage] = useState("en");
 
-  function App() {
-    return (
-      <Router>
-        <div className="App">
-          {/* Navigation Bar */}
-          <NavBar />
+  // Function to scroll smoothly to a section
+  const scrollToSection = (sectionId) => {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth" }); // Smooth scrolling
+    }
+  };
+
+  const toggleLanguage = () => {
+    setLanguage((prevLanguage) => (prevLanguage === "en" ? "ar" : "en"));
+    document.documentElement.lang = language === "en" ? "ar" : "en";
+    document.body.dir = language === "en" ? "rtl" : "ltr";
+  };
+
+  return (
+    <nav className="navbar">
+      <div className="nav-logo">
+        <img
+          src="\CompanyLogo.png"
+          alt="Company Logo"
+          className="logo"
+          style={{ width: "50px", height: "50px" }}
+        />
+      </div>
+      <div className="nav-links">
+        <button onClick={() => scrollToSection("home")}>Home</button>
+        <button onClick={() => scrollToSection("services")}>Services</button>
+        <button onClick={() => scrollToSection("about")}>About</button>
+        <button onClick={() => scrollToSection("contact")}>Get in touch</button>
+      </div>
+      <div
+        className="language-switch"
+        style={{
+          display: "flex",
+          justifyContent: language === "en" ? "flex-end" : "flex-start",
+        }}
+      >
+        <button onClick={toggleLanguage} className="language-btn">
+          {language === "en" ? "Arabic" : "English"}
+        </button>
+      </div>
+    </nav>
+  );
+}
+
+function App() {
+  return (
+    <div className="App">
+      <Navbar />
 
           {/* Home Section */}
           <section id="home" className="section home-section">
@@ -25,24 +68,23 @@
             </div>
           </section>
 
-          {/* Services Section */}
-          <section id="services" className="section services-section">
-            <h2>Our Services</h2>
-            <div className="services-grid">
-              <div className="service-card">
-                <h3>Service 1</h3>
-                <p>Description of service 1</p>
-              </div>
-              <div className="service-card">
-                <h3>Service 2</h3>
-                <p>Description of service 2</p>
-              </div>
-              <div className="service-card">
-                <h3>Service 3</h3>
-                <p>Description of service 3</p>
-              </div>
-            </div>
-          </section>
+      <section id="services" className="section services-section">
+        <h2>Our Services</h2>
+        <div className="services-grid">
+          <div className="service-card">
+            <h3>Service 1</h3>
+            <p>Description of service 1</p>
+          </div>
+          <div className="service-card">
+            <h3>Service 2</h3>
+            <p>Description of service 2</p>
+          </div>
+          <div className="service-card">
+            <h3>Service 3</h3>
+            <p>Description of service 3</p>
+          </div>
+        </div>
+      </section>
 
           {/* About Section */}
           <section id="about" className="section about-section">
@@ -130,39 +172,38 @@
             </div>
           </section>
 
-          {/* Contact Section */}
-          <section id="contact" className="section contact-section">
-            <div className="get-in-touch">
-              <h2>Contact Us</h2>
-            </div>
+      <section id="contact" className="section contact-section">
+  {/* Get in Touch Header */}
+  <div className="get-in-touch">
+    <h2>Contact Us</h2>
+  </div>
 
-            <div className="contact-container">
-              <div className="company-message">
-                <h3>Company Message</h3>
-                <p>
-                  We value your time and interest in our services. Please feel
-                  free to reach out with any questions or requests.
-                </p>
-                <div className="social-icons">
-                  <a href="mailto:info@company.com" className="contact-item">
-                    <FaEnvelope />
-                    <span>info@company.com</span>
-                  </a>
+  <div className="contact-container">
+    {/* Company Message Section */}
+    <div className="company-message">
+      <h3>Company Message</h3>
+      <p>
+        We value your time and interest in our services. Please feel free to
+        reach out with any questions or requests.
+      </p>
+      <div className="social-icons">
 
-                  <a href="tel:+1234567890" className="contact-item">
-                    <FaPhoneAlt />
-                    <span>+968 97760250</span>
-                  </a>
+      <a href="mailto:info@company.com" className="contact-item">
+    <FaEnvelope />
+    <span>info@company.com</span>
+  </a>
 
-                  <a
-                    href="https://maps.app.goo.gl/u4Ta3Kyhirgx4BDs8"
-                    className="contact-item"
-                  >
-                    <FaMapMarkerAlt />
-                    <span>Our Office Location</span>
-                  </a>
-                </div>
-              </div>
+  <a href="tel:+1234567890" className="contact-item">
+    <FaPhoneAlt />
+    <span>+968 97760250</span>
+  </a>
+
+  <a href="https://maps.app.goo.gl/u4Ta3Kyhirgx4BDs8" className="contact-item">
+  <FaMapMarkerAlt />
+  <span>Our Office Location</span>
+</a>
+  </div>
+</div>
 
               <div className="contact-form-box">
                 <div className="contact-form">
