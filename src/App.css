@@ -9,10 +9,11 @@ html {
   scroll-behavior: smooth; /* Enables smooth scrolling */
 }
 
-.App {
-  text-align: center;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
-    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+body {
+  font-family: 'Centra', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  background-color: #121212;
+  color: #fff;
+  overflow-x: hidden;
 }
 
 /* Navbar styles */
@@ -21,12 +22,17 @@ html {
   top: 0;
   width: 100%;
   display: flex;
-  justify-content: space-between; /* Align items to the left and right */
+  justify-content: space-between;
   align-items: center;
-  padding: 10px 20px; /* Updated padding */
-  background-color: rgb(255, 255, 255);
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 18px 20px;
+  background-color: #121212;
   z-index: 1000;
+  transition: 0.3s ease-in-out;
+}
+
+.navbar.scrolled {
+  padding: 10px 20px;
+  background-color: #000;
 }
 
 .nav-logo img {
@@ -36,119 +42,141 @@ html {
 
 .nav-links {
   display: flex;
-  gap: 2rem; /* Increase spacing between links */
-  margin-left: 2rem; /* Add space from the logo */
+  gap: 1.5rem;
 }
 
-.nav-links {
-  display: flex;
-  gap: 10px; /* Updated spacing between links */
-}
-
-.nav-links button {
-  background: none;
-  border: none;
-  padding: 0.5rem 1rem;
+.navbar-link {
+  color: #fff; /* Ensure the links are white for visibility */
   font-size: 1rem;
-  color: #333;
-  cursor: pointer;
-  transition: color 0.3s ease;
+  text-decoration: none;
+  transition: color 0.3s ease; /* Smooth color transition */
 }
 
-.nav-links button:hover {
-  color: #007bff;
-}
-.nav-links button:nth-child(4){
-  background-color: #3f6b71;
-  color: white;
-  padding: 7px 18px;
-  border-radius: 6px;
-  border: none;
-}
-.nav-links button:nth-child(4):hover{
-  color: #3f6b71;
-  background-color: rgb(214, 214, 214);
-  padding: 7px 16px;
-  border-radius: 6px;
-  border: none;
+.navbar-link:hover,
+.navbar-link.active {
+  color: #007bff; /* Add a hover and active color for better interactivity */
 }
 
-/* Language switch button */
-.language-switch {
-  margin-left: auto; /* Align the language switch to the right */
+.navbar-link:focus,
+.navbar-link:active {
+  color: #ffffff; /* Ensure the color remains consistent when clicked */
+  text-decoration: none; /* Prevent any underline or unwanted styles */
+  outline: none; /* Remove any default focus outline */
 }
 
-.language-btn {
-  background-color: #007bff;
-  color: white;
-  border: none;
-  padding: 5px 10px; /* Updated padding */
+.navbar-text button {
+  background-color: transparent;
+  color: #fff;
+  border: 1px solid #fff;
+  padding: 10px 20px;
   border-radius: 5px;
   cursor: pointer;
-  transition: background-color 0.3s ease;
+  transition: all 0.3s ease;
 }
 
-/* Section styles */
-.section {
-  min-height: 100vh;
-  padding: 6rem 2rem 4rem;
+.navbar-text button:hover {
+  background-color: #fff;
+  color: #121212;
+}
+
+/* Mobile Navbar */
+.nav-toggle {
+  display: none;
+  font-size: 2rem;
+  cursor: pointer;
+}
+
+.nav-links.open {
   display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
 }
 
-/* Home section */
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: row; /* Ensure navbar items are in a row even on mobile */
+    justify-content: space-between;
+    padding: 1rem 20px;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 1rem;
+    width: auto;
+    align-items: center;
+  }
+
+  .nav-toggle {
+    display: block;
+    font-size: 2rem;
+    cursor: pointer;
+  }
+
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    gap: 1rem;
+    width: 100%;
+    align-items: center;
+    padding-top: 10px;
+  }
+
+  .nav-links.open {
+    display: flex;
+  }
+
+  .nav-logo {
+    margin-right: auto; /* Ensure the logo stays aligned on the left */
+  }
+
+  .nav-links {
+    margin-top: 10px; /* Add spacing to the links on mobile */
+  }
+}
+
+/* Home Section */
 .home-section {
   position: relative;
-  overflow: hidden;
-  height: 100vh; /* Full viewport height */
+  height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: white; /* Ensure text is visible over the video */
   text-align: center;
+  color: #fff;
 }
 
-/* Background video styling */
 .background-video {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  object-fit: cover; /* Ensures the video covers the entire section */
-  z-index: -1; /* Places the video behind the content */
-}
-
-/* Home content styling */
-.home-content {
-  position: relative;
-  z-index: 1; /* Ensures the text is above the video */
-  padding: 20px;
+  object-fit: cover;
+  z-index: -1;
 }
 
 .home-content h1 {
   font-size: 3rem;
-  margin-bottom: 20px;
+  margin-bottom: 1rem;
 }
 
 .home-content p {
   font-size: 1.5rem;
 }
 
-/* Services section */
+/* Services Section */
+.services-section {
+  padding: 4rem 2rem;
+  background-color: #f8f9fa;
+  color: #333;
+}
+
 .services-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 2rem;
-  width: 100%;
-  max-width: 1200px;
-  margin-top: 2rem;
 }
 
 .service-card {
-  background: white;
+  background: #fff;
   padding: 2rem;
   border-radius: 10px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
@@ -159,106 +187,64 @@ html {
   transform: translateY(-5px);
 }
 
-
-/* About section */
+/* About Section */
 .about-section {
-  background-color: #f8f9fa; /* Light gray background */
-  padding: 4rem 2rem; /* Add spacing around the section */
-  text-align: left; /* Align text to the left */
-  color: #333; /* Dark gray text color */
+  padding: 4rem 2rem;
+  background-color: #121212;
+  color: #fff;
 }
 
 .about-content {
   display: flex;
-  justify-content: space-between; /* Push content to extreme left and right */
-  align-items: center; /* Center vertically */
-  gap: 300px; /* Increase the gap to add huge space */
-  margin-top: 20px;
+  flex-wrap: wrap;
+  gap: 2rem;
 }
 
-/* About Details Column */
 .about-details {
-  flex: 2; /* Take up more space for the text */
+  flex: 2;
 }
 
 .about-location {
-  flex: 1; /* Take up less space for the map */
-  text-align: center; /* Center-align the map content */
+  flex: 1;
+  text-align: center;
 }
 
-.about-section p {
-  max-width: 800px;
-  margin: 1rem 0;
-  line-height: 1.6;
+.about-location iframe {
+  width: 100%;
+  height: 300px;
+  border: none;
 }
 
-
-/* Contact section */
-/* Contact section */
-.contact-form {
-  display: flex;
-  flex-direction: column; /* Ensures the inputs stack vertically */
-  justify-content: flex-start;
-  padding: 20px;
-  background-color: #f9f9f9;
-  border-radius: 8px; /* Adds rounded corners */
-  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+/* Contact Section */
+.contact-section {
+  padding: 4rem 2rem;
+  background-color: #f8f9fa;
+  color: #333;
 }
 
 .contact-container {
   display: flex;
-  width: 80%;
-  justify-content: space-between; /* Ensures the sections are side by side */
+  flex-wrap: wrap;
+  gap: 2rem;
 }
 
 .company-message {
-  width: 45%; /* Takes 45% of the width */
-  padding-right: 30px; /* Space between company message and form */
-}
-
-
-.company-message h3 {
-  font-size: 1.8rem;
-  margin-bottom: 20px;
-}
-
-.company-message p {
-  font-size: 1rem;
-  margin-bottom: 20px;
-  text-align: justify;
-}
-
-.company-message .social-icons a {
-  display: flex;
-  align-items: center; /* Aligns the icon and text horizontally */
-  font-size: 1.1rem;
-  color: #333;
-  margin-bottom: 10px;
-  text-decoration: none;
-}
-
-.company-message .social-icons a i {
-  font-size: 1.5rem;  /* Adjust icon size */
-  margin-right: 10px; /* Space between icon and text */
-}
-
-.company-message .social-icons a:hover {
-  color: #007bff;
+  flex: 1;
 }
 
 .contact-form-box {
-  width: 50%; /* Takes 50% of the width */
-  background-color: white;
-  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-  padding: 30px;
-  border-radius: 8px;
+  flex: 1;
+  background: #fff;
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 .contact-form input,
 .contact-form textarea {
   width: 100%;
-  padding: 12px;
-  margin: 10px 0;
+  padding: 10px;
+  margin-bottom: 1rem;
   border: 1px solid #ddd;
   border-radius: 5px;
 }
@@ -269,49 +255,57 @@ html {
 
 .get-in-touch-btn {
   background-color: #007bff;
-  color: white;
-  padding: 12px 20px;
-  font-size: 1rem;
+  color: #fff;
+  padding: 10px 20px;
   border: none;
-  cursor: pointer;
-  width: 100%;
   border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
 }
 
 .get-in-touch-btn:hover {
   background-color: #0056b3;
 }
 
-/* Style for Get in Touch Header */
-.get-in-touch {
-  text-align: center;
-  margin-bottom: 2rem;
-}
-
-.get-in-touch h2 {
-  font-size: 2rem;
-  color: #333;
-}
-
-
-/* Responsive design */
+/* Responsive Design */
 @media (max-width: 768px) {
   .navbar {
-    flex-direction: column;
-    padding: 1rem;
-  }
-
-  .nav-logo {
-    margin-bottom: 1rem;
+    flex-direction: row; /* Ensure navbar items are in a row even on mobile */
+    justify-content: space-between;
+    padding: 1rem 20px;
   }
 
   .nav-links {
-    flex-wrap: wrap;
-    justify-content: center;
+    display: flex;
+    gap: 1rem;
+    width: auto;
+    align-items: center;
   }
-  
 
-  .home-section h1 {
+  .nav-toggle {
+    display: block;
     font-size: 2rem;
+    cursor: pointer;
+  }
+
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    gap: 1rem;
+    width: 100%;
+    align-items: center;
+    padding-top: 10px;
+  }
+
+  .nav-links.open {
+    display: flex;
+  }
+
+  .nav-logo {
+    margin-right: auto; /* Ensure the logo stays aligned on the left */
+  }
+
+  .nav-links {
+    margin-top: 10px; /* Add spacing to the links on mobile */
   }
 }
