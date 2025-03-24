@@ -1,8 +1,7 @@
 import React, { useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
-import { FaEnvelope, FaPhoneAlt, FaMapMarkerAlt } from 'react-icons/fa';
-
+import { FaEnvelope, FaPhoneAlt, FaMapMarkerAlt } from "react-icons/fa";
 
 function Navbar() {
   const [language, setLanguage] = useState("en");
@@ -51,8 +50,13 @@ function Navbar() {
     </nav>
   );
 }
-
+const services = [
+  { title: "Service 1", description: "Description of service 1" },
+  { title: "Service 2", description: "Description of service 2" },
+  { title: "Service 3", description: "Description of service 3" },
+];
 function App() {
+  const [hoveredIndex, setHoveredIndex] = useState(null);
   return (
     <div className="App">
       <Navbar />
@@ -71,18 +75,24 @@ function App() {
       <section id="services" className="section services-section">
         <h2>Our Services</h2>
         <div className="services-grid">
-          <div className="service-card">
-            <h3>Service 1</h3>
-            <p>Description of service 1</p>
-          </div>
-          <div className="service-card">
-            <h3>Service 2</h3>
-            <p>Description of service 2</p>
-          </div>
-          <div className="service-card">
-            <h3>Service 3</h3>
-            <p>Description of service 3</p>
-          </div>
+          {services.map((service, index) => (
+            <div
+              key={index}
+              className="service-wrapper"
+              onMouseEnter={() => setHoveredIndex(index)}
+              onMouseLeave={() => setHoveredIndex(null)}
+            >
+              <div className="service-card">{service.title}</div>
+              <div
+                className={`service-description ${
+                  hoveredIndex === index ? "visible" : ""
+                }`}
+              >
+                {service.description}
+                <div className="read-more">read more..</div>
+              </div>
+            </div>
+          ))}
         </div>
       </section>
 
@@ -172,37 +182,39 @@ function App() {
       </section>
 
       <section id="contact" className="section contact-section">
-  {/* Get in Touch Header */}
-  <div className="get-in-touch">
-    <h2>Contact Us</h2>
-  </div>
+        {/* Get in Touch Header */}
+        <div className="get-in-touch">
+          <h2>Contact Us</h2>
+        </div>
 
-  <div className="contact-container">
-    {/* Company Message Section */}
-    <div className="company-message">
-      <h3>Company Message</h3>
-      <p>
-        We value your time and interest in our services. Please feel free to
-        reach out with any questions or requests.
-      </p>
-      <div className="social-icons">
+        <div className="contact-container">
+          {/* Company Message Section */}
+          <div className="company-message">
+            <h3>Company Message</h3>
+            <p>
+              We value your time and interest in our services. Please feel free
+              to reach out with any questions or requests.
+            </p>
+            <div className="social-icons">
+              <a href="mailto:info@company.com" className="contact-item">
+                <FaEnvelope />
+                <span>info@company.com</span>
+              </a>
 
-      <a href="mailto:info@company.com" className="contact-item">
-    <FaEnvelope />
-    <span>info@company.com</span>
-  </a>
+              <a href="tel:+1234567890" className="contact-item">
+                <FaPhoneAlt />
+                <span>+968 97760250</span>
+              </a>
 
-  <a href="tel:+1234567890" className="contact-item">
-    <FaPhoneAlt />
-    <span>+968 97760250</span>
-  </a>
-
-  <a href="https://maps.app.goo.gl/u4Ta3Kyhirgx4BDs8" className="contact-item">
-  <FaMapMarkerAlt />
-  <span>Our Office Location</span>
-</a>
-  </div>
-</div>
+              <a
+                href="https://maps.app.goo.gl/u4Ta3Kyhirgx4BDs8"
+                className="contact-item"
+              >
+                <FaMapMarkerAlt />
+                <span>Our Office Location</span>
+              </a>
+            </div>
+          </div>
 
           {/* Contact Form */}
           <div className="contact-form-box">
