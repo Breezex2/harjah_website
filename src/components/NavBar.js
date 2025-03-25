@@ -27,7 +27,11 @@ const NavbarComponent = () => {
   };
 
   return (
-    <nav className={`navbar ${scrolled ? "scrolled" : ""}`}>
+    <nav
+      className={`navbar ${scrolled ? "scrolled" : ""} ${
+        language === "ar" ? "rtl" : "ltr"
+      }`}
+    >
       <div className="container mx-auto flex items-center justify-between px-6 py-4">
         {/* Logo */}
         <div className="nav-logo">
@@ -35,7 +39,7 @@ const NavbarComponent = () => {
         </div>
 
         {/* Navigation Links */}
-        <ul className="nav-links flex items-center gap-8 text-white text-lg ml-auto">
+        <ul className="nav-links flex items-center gap-8 text-white text-lg">
           {[{ id: "home", label: "Home" }, { id: "services", label: "Services" }, { id: "about", label: "About Us" }, { id: "contact", label: "Get in Touch" }].map(
             ({ id, label }) => (
               <li key={id}>

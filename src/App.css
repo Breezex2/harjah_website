@@ -58,7 +58,8 @@ body {
 .nav-logo {
   display: flex;
   align-items: center;
-  margin-right: auto; /* Push logo to the left */
+  margin-right: 0; /* Remove extra space on the right */
+  margin-left: -10%; /* Move the logo further to the left */
 }
 
 .nav-logo img {
@@ -198,6 +199,33 @@ body {
 
 .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
   border-color: transparent;
+}
+
+/* RTL and LTR Layouts */
+/* RTL and LTR Layouts */
+.navbar.ltr {
+  direction: ltr;
+}
+
+.navbar.ltr .nav-logo {
+  margin-right: auto; /* Push logo to the left */
+}
+
+.navbar.ltr .nav-links {
+  margin-left: auto; /* Push links to the right */
+}
+
+.navbar.rtl {
+  direction: rtl;
+}
+
+.navbar.rtl .nav-logo {
+  margin-left: auto; /* Push logo to the extreme right */
+  margin-right: 0; /* Ensure no extra space on the right */
+}
+
+.navbar.rtl .nav-links {
+  margin-right: auto; /* Push links to the left */
 }
 
 /* Home Section */
