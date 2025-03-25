@@ -1,8 +1,26 @@
+/************ Custom Font ************/
+@font-face {
+  font-family: Centra;
+  src: url('./assets/font/CentraNo2-Bold.ttf');
+  font-weight: 700;
+}
+@font-face {
+  font-family: Centra;
+  src: url('./assets/font/CentraNo2-Medium.ttf');
+  font-weight: 500;
+}
+@font-face {
+  font-family: Centra;
+  src: url('./assets/font/CentraNo2-Book.ttf');
+  font-weight: 400;
+}
+
 /* Reset default styles */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
 }
 
 html {
@@ -20,116 +38,166 @@ body {
 .navbar {
   position: fixed;
   top: 0;
+  left: 0;
   width: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 18px 20px;
+  padding: 10px 10%; /* Reduced padding to decrease height */
   background-color: #121212;
   z-index: 1000;
   transition: 0.3s ease-in-out;
 }
 
 .navbar.scrolled {
-  padding: 10px 20px;
+  padding: 5px 10%; /* Further reduced padding when scrolled */
   background-color: #000;
 }
 
+/* Logo on the left */
+.nav-logo {
+  display: flex;
+  align-items: center;
+  margin-right: auto; /* Push logo to the left */
+}
+
 .nav-logo img {
-  width: 50px;
+  width: 50px; /* Adjust logo size */
   height: 50px;
+}
+
+/* Navbar Styles */
+.navbar {
+  padding: 18px 0;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 9999;
+  transition: 0.32s ease-in-out;
+}
+
+.navbar.scrolled {
+  padding: 0px 0;
+  background-color: #121212;
+}
+
+.nav-logo {
+  width: 9%;
 }
 
 .nav-links {
   display: flex;
-  gap: 1.5rem;
+  gap: 2rem;
+  list-style: none; /* Removes the default dots */
+  padding: 0; /* Removes default padding */
+  margin: 0; /* Removes default margin */
 }
 
 .navbar-link {
-  color: #fff; /* Ensure the links are white for visibility */
-  font-size: 1rem;
+  font-weight: 400;
+  color: #fff !important;
+  letter-spacing: 0.8px;
+  padding: 0 25px;
+  font-size: 18px;
+  opacity: 0.75;
   text-decoration: none;
-  transition: color 0.3s ease; /* Smooth color transition */
+  transition: opacity 0.3s ease;
 }
 
 .navbar-link:hover,
 .navbar-link.active {
-  color: #007bff; /* Add a hover and active color for better interactivity */
+  opacity: 1;
 }
 
-.navbar-link:focus,
-.navbar-link:active {
-  color: #ffffff; /* Ensure the color remains consistent when clicked */
-  text-decoration: none; /* Prevent any underline or unwanted styles */
-  outline: none; /* Remove any default focus outline */
+.navbar-text {
+  display: flex;
+  align-items: center;
 }
 
 .navbar-text button {
-  background-color: transparent;
+  font-weight: 700;
   color: #fff;
   border: 1px solid #fff;
-  padding: 10px 20px;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: all 0.3s ease;
+  padding: 18px 34px;
+  font-size: 18px;
+  margin-left: 18px;
+  position: relative;
+  background-color: transparent;
+  transition: 0.3s ease-in-out;
+}
+
+.navbar-text button span {
+  z-index: 1;
+}
+
+.navbar-text button::before {
+  content: "";
+  width: 0%;
+  height: 100%;
+  position: absolute;
+  background-color: #fff;
+  left: 0;
+  top: 0;
+  z-index: -1;
+  transition: 0.3s ease-in-out;
 }
 
 .navbar-text button:hover {
-  background-color: #fff;
   color: #121212;
 }
 
-/* Mobile Navbar */
-.nav-toggle {
-  display: none;
-  font-size: 2rem;
-  cursor: pointer;
+.navbar-text button:hover::before {
+  width: 100%;
+  height: 100%;
 }
 
-.nav-links.open {
-  display: flex;
+.navbar-toggler:active,
+.navbar-toggler:focus {
+  outline: none;
+  box-shadow: none;
 }
 
-@media (max-width: 768px) {
-  .navbar {
-    flex-direction: row; /* Ensure navbar items are in a row even on mobile */
-    justify-content: space-between;
-    padding: 1rem 20px;
-  }
+.navbar-toggler-icon {
+  width: 24px;
+  height: 17px;
+  background-image: none;
+  position: relative;
+  border-bottom: 2px solid #fff;
+  transition: all 300ms linear;
+  top: -2px;
+}
 
-  .nav-links {
-    display: flex;
-    gap: 1rem;
-    width: auto;
-    align-items: center;
-  }
+.navbar-toggler-icon:after,
+.navbar-toggler-icon:before {
+  width: 24px;
+  position: absolute;
+  height: 2px;
+  background-color: #fff;
+  top: 0;
+  left: 0;
+  content: '';
+  z-index: 2;
+  transition: all 300ms linear;
+}
 
-  .nav-toggle {
-    display: block;
-    font-size: 2rem;
-    cursor: pointer;
-  }
+.navbar-toggler-icon:after {
+  top: 8px;
+}
 
-  .nav-links {
-    display: none;
-    flex-direction: column;
-    gap: 1rem;
-    width: 100%;
-    align-items: center;
-    padding-top: 10px;
-  }
+.navbar-toggler[aria-expanded="true"] .navbar-toggler-icon:after {
+  transform: rotate(45deg);
+  background-color: #fff;
+  height: 2px;
+}
 
-  .nav-links.open {
-    display: flex;
-  }
+.navbar-toggler[aria-expanded="true"] .navbar-toggler-icon:before {
+  transform: translateY(8px) rotate(-45deg);
+  background-color: #fff;
+  height: 2px;
+}
 
-  .nav-logo {
-    margin-right: auto; /* Ensure the logo stays aligned on the left */
-  }
-
-  .nav-links {
-    margin-top: 10px; /* Add spacing to the links on mobile */
-  }
+.navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
+  border-color: transparent;
 }
 
 /* Home Section */
@@ -253,59 +321,14 @@ body {
   height: 150px;
 }
 
-.get-in-touch-btn {
-  background-color: #007bff;
+/* Footer */
+footer {
+  background-color: #000;
+  padding: 2rem;
   color: #fff;
-  padding: 10px 20px;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
+  text-align: center;
 }
 
-.get-in-touch-btn:hover {
-  background-color: #0056b3;
-}
-
-/* Responsive Design */
-@media (max-width: 768px) {
-  .navbar {
-    flex-direction: row; /* Ensure navbar items are in a row even on mobile */
-    justify-content: space-between;
-    padding: 1rem 20px;
-  }
-
-  .nav-links {
-    display: flex;
-    gap: 1rem;
-    width: auto;
-    align-items: center;
-  }
-
-  .nav-toggle {
-    display: block;
-    font-size: 2rem;
-    cursor: pointer;
-  }
-
-  .nav-links {
-    display: none;
-    flex-direction: column;
-    gap: 1rem;
-    width: 100%;
-    align-items: center;
-    padding-top: 10px;
-  }
-
-  .nav-links.open {
-    display: flex;
-  }
-
-  .nav-logo {
-    margin-right: auto; /* Ensure the logo stays aligned on the left */
-  }
-
-  .nav-links {
-    margin-top: 10px; /* Add spacing to the links on mobile */
-  }
+footer p {
+  margin: 0;
 }
