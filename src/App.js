@@ -5,7 +5,7 @@ import "./App.css";
 import Navbar from "./components/NavBar"; // Ensure this path is correct
 import { FaEnvelope, FaPhoneAlt, FaMapMarkerAlt } from 'react-icons/fa';
 import AOS from "aos";
-import "aos/dist/aos.css"; // Don't forget to import AOS styles
+import "aos/dist/aos.css";
 import webDevGif from "./assets/img/webDev.gif";
 import mobileDevGif from "./assets/img/mobileDev.gif";
 import uiDesignGif from "./assets/img/UI_design.gif";
