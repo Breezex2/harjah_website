@@ -48,30 +48,21 @@ const services = [
   ];
 
   return (
-    <Router> {/* Wrap everything inside BrowserRouter */}
-<div className="App">
-  <Navbar toggleLanguage={toggleLanguage} /> {/* Pass the function to Navbar */}
+    <div className="App">
+      <Navbar />
 
       <section id="home" className="section home-section">
-    <video autoPlay loop muted className="background-video">
-      <source src="/video.mp4" type="video/mp4" />
-      Your browser does not support the video tag.
-       </video>
-      <div className="home-content">
-        <div className="home-left">
-         <img
-          src={require('./assets/img/Home.jpg')}
-          alt="Home"
-            className="home-image"
-        />
-          </div>
-      <div className="home-right">
-        <h1>Welcome to Harjah</h1>
-        <p>We provide innovative solutions for your business needs</p>
-          </div>
+        <video autoPlay loop muted className="background-video">
+          <source src="/video.mp4" type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
+        <div className="home-content">
+          <h1>Welcome to Our Company</h1>
+          <p>We provide innovative solutions for your business needs</p>
         </div>
-        </section>
-        <section id="services" className="section services-section">
+      </section>
+
+      <section id="services" className="section services-section">
         <h2>Our Services</h2>
         <div className="services-grid">
           {services.map((service, index) => (

@@ -43,23 +43,10 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 5px 10%;
-  background-color: transparent; /* Initially transparent */
+  padding: 10px 20px; /* Updated padding */
+  background-color: rgb(255, 255, 255);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   z-index: 1000;
-  transition: background-color 0.3s ease-in-out, padding 0.3s ease-in-out;
-}
-
-.navbar.scrolled {
-  background-color: #000; /* Black background when scrolled */
-  padding: 5px 10%; /* Adjust padding if needed */
-}
-
-/* Logo on the left */
-.nav-logo {
-  display: flex;
-  align-items: center;
-  margin-right: auto; /* Push the logo to the left */
-  margin-left: 0; /* Remove negative margin */
 }
 
 .nav-logo img {
@@ -89,21 +76,8 @@ body {
 
 .nav-links {
   display: flex;
-  gap: 2rem;
-  list-style: none; /* Removes the default dots */
-  padding: 0; /* Removes default padding */
-  margin: 0; /* Removes default margin */
-}
-
-.navbar-link {
-  font-weight: 900; /* Make text bold */
-  color: #fff !important;
-  letter-spacing: 0.8px;
-  padding: 0 25px;
-  font-size: 14px; /* Reduced font size */
-  opacity: 0.75;
-  text-decoration: none;
-  transition: opacity 0.3s ease;
+  gap: 2rem; /* Increase spacing between links */
+  margin-left: 2rem; /* Add space from the logo */
 }
 
 .navbar-link:hover,
@@ -113,123 +87,63 @@ body {
 
 .navbar-text {
   display: flex;
+  gap: 10px; /* Updated spacing between links */
+}
+
+.nav-links button {
+  background: none;
+  border: none;
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  color: #333;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.nav-links button:hover {
+  color: #007bff;
+}
+.nav-links button:nth-child(4){
+  background-color: #3f6b71;
+  color: white;
+  padding: 7px 18px;
+  border-radius: 6px;
+  border: none;
+}
+.nav-links button:nth-child(4):hover{
+  color: #3f6b71;
+  background-color: rgb(214, 214, 214);
+  padding: 7px 16px;
+  border-radius: 6px;
+  border: none;
+}
+
+/* Language switch button */
+.language-switch {
+  margin-left: auto; /* Align the language switch to the right */
+}
+
+.language-btn {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 5px 10px; /* Updated padding */
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+/* Section styles */
+.section {
+  min-height: 100vh;
+  padding: 6rem 2rem 4rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   align-items: center;
 }
 
-.navbar-text button {
-  font-weight: 700;
-  color: #fff;
-  border: 1px solid #fff;
-  padding: 18px 34px;
-  font-size: 18px;
-  margin-left: 18px;
-  position: relative;
-  background-color: transparent;
-  transition: 0.3s ease-in-out;
-}
-
-.navbar-text button span {
-  z-index: 1;
-}
-
-.navbar-text button::before {
-  content: "";
-  width: 0%;
-  height: 100%;
-  position: absolute;
-  background-color: #fff;
-  left: 0;
-  top: 0;
-  z-index: -1;
-  transition: 0.3s ease-in-out;
-}
-
-.navbar-text button:hover {
-  color: #121212;
-}
-
-.navbar-text button:hover::before {
-  width: 100%;
-  height: 100%;
-}
-
-.navbar-toggler:active,
-.navbar-toggler:focus {
-  outline: none;
-  box-shadow: none;
-}
-
-.navbar-toggler-icon {
-  width: 24px;
-  height: 17px;
-  background-image: none;
-  position: relative;
-  border-bottom: 2px solid #fff;
-  transition: all 300ms linear;
-  top: -2px;
-}
-
-.navbar-toggler-icon:after,
-.navbar-toggler-icon:before {
-  width: 24px;
-  position: absolute;
-  height: 2px;
-  background-color: #fff;
-  top: 0;
-  left: 0;
-  content: '';
-  z-index: 2;
-  transition: all 300ms linear;
-}
-
-.navbar-toggler-icon:after {
-  top: 8px;
-}
-
-.navbar-toggler[aria-expanded="true"] .navbar-toggler-icon:after {
-  transform: rotate(45deg);
-  background-color: #fff;
-  height: 2px;
-}
-
-.navbar-toggler[aria-expanded="true"] .navbar-toggler-icon:before {
-  transform: translateY(8px) rotate(-45deg);
-  background-color: #fff;
-  height: 2px;
-}
-
-.navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
-  border-color: transparent;
-}
-
-/* RTL and LTR Layouts */
-/* RTL and LTR Layouts */
-.navbar.ltr {
-  direction: ltr;
-}
-
-.navbar.ltr .nav-logo {
-  margin-right: auto; /* Push logo to the left */
-}
-
-.navbar.ltr .nav-links {
-  margin-left: auto; /* Push links to the right */
-}
-
-.navbar.rtl {
-  direction: rtl;
-}
-
-.navbar.rtl .nav-logo {
-  margin-left: auto; /* Push logo to the extreme right */
-  margin-right: 0; /* Ensure no extra space on the right */
-}
-
-.navbar.rtl .nav-links {
-  margin-right: auto; /* Push links to the left */
-}
-
-/* Home Section */
+/* Home section */
 .home-section {
   position: relative;
   height: 100vh;
@@ -246,33 +160,15 @@ body {
   left: 0;
   width: 100%;
   height: 100%;
-  object-fit: cover;
-  z-index: -1;
-  opacity: 0.4; /* Adjust the value for translucency */
+  object-fit: cover; /* Ensures the video covers the entire section */
+  z-index: -1; /* Places the video behind the content */
 }
 
-/* Home Content */
+/* Home content styling */
 .home-content {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  height: 100%;
-  padding: 0 10%;
   position: relative;
-  z-index: 2; /* Ensure it appears above the video */
-}
-
-.home-left {
-  flex: 1;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.home-image {
-  max-width: 60%; /* Reduce the maximum width to 70% of its container */
-  height: auto; /* Maintain aspect ratio */
-  border-radius: 8px; /* Optional: Add rounded corners */
+  z-index: 1; /* Ensures the text is above the video */
+  padding: 20px;
 }
 
 .home-right {
