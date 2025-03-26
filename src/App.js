@@ -6,6 +6,9 @@ import Navbar from "./components/NavBar"; // Ensure this path is correct
 import { FaEnvelope, FaPhoneAlt, FaMapMarkerAlt } from 'react-icons/fa';
 import AOS from "aos";
 import "aos/dist/aos.css"; // Don't forget to import AOS styles
+import webDevGif from "./assets/img/webDev.gif";
+import mobileDevGif from "./assets/img/mobileDev.gif";
+import uiDesignGif from "./assets/img/UI_design.gif";
 
 const App = () => {
   const [language, setLanguage] = useState("en");
@@ -22,6 +25,27 @@ const App = () => {
     document.documentElement.lang = language === "en" ? "ar" : "en";
     document.body.dir = language === "en" ? "rtl" : "ltr";
   };
+
+const [hoveredIndex, setHoveredIndex] = useState(null);
+
+const services = [
+    {
+      title: "Web Development",
+      description:
+        "Elevate your brand with high-performance, scalable websites and web applications. Seamless functionality, stunning design, and an exceptional user experience—all tailored to your business needs.",
+      gif: webDevGif,
+    },
+    {
+      title: "Mobile Development",
+      description: "Power up your business with sleek, high-performing mobile apps for iOS and Android. Native and cross-platform solutions designed for speed, usability, and seamless interaction.",
+      gif: mobileDevGif,
+    },
+    {
+      title: "UI Design",
+      description: "Captivate your audience with stunning, user-centric designs. Modern aesthetics, intuitive navigation, and seamless digital experiences that leave a lasting impression.",
+      gif: uiDesignGif,
+    },
+  ];
 
   return (
     <Router> {/* Wrap everything inside BrowserRouter */}
@@ -40,22 +64,35 @@ const App = () => {
         </section>
 
         <section id="services" className="section services-section">
-          <h2>Our Services</h2>
-          <div className="services-grid">
-            <div className="service-card">
-              <h3>Service 1</h3>
-              <p>Description of service 1</p>
+        <h2>Our Services</h2>
+        <div className="services-grid">
+          {services.map((service, index) => (
+            <div
+              key={index}
+              className="service-wrapper"
+              onMouseEnter={() => setHoveredIndex(index)}
+              onMouseLeave={() => setHoveredIndex(null)}
+            >
+              <div className="service-card">
+                  <img
+                    src={service.gif}
+                    alt={""}
+                    className="service-gif"
+                  />
+                  <h3>{service.title}</h3>
+                </div>
+              <div
+                className={`service-description ${
+                  hoveredIndex === index ? "visible" : ""
+                }`}
+              >
+                {service.description}
+                <div className="read-more">read more..</div>
+              </div>
             </div>
-            <div className="service-card">
-              <h3>Service 2</h3>
-              <p>Description of service 2</p>
-            </div>
-            <div className="service-card">
-              <h3>Service 3</h3>
-              <p>Description of service 3</p>
-            </div>
-          </div>
-        </section>
+          ))}
+        </div>
+      </section>
 
         <section id="about" className="section about-section">
           <h2>About Us</h2>
