@@ -43,28 +43,29 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 10px 10%; /* Reduced padding to decrease height */
-  background-color: #121212;
+  padding: 5px 10%;
+  background-color: transparent; /* Initially transparent */
   z-index: 1000;
-  transition: 0.3s ease-in-out;
+  transition: background-color 0.3s ease-in-out, padding 0.3s ease-in-out;
 }
 
 .navbar.scrolled {
-  padding: 5px 10%; /* Further reduced padding when scrolled */
-  background-color: #000;
+  background-color: #000; /* Black background when scrolled */
+  padding: 5px 10%; /* Adjust padding if needed */
 }
 
 /* Logo on the left */
 .nav-logo {
   display: flex;
   align-items: center;
-  margin-right: 0; /* Remove extra space on the right */
-  margin-left: -10%; /* Move the logo further to the left */
+  margin-right: auto; /* Push the logo to the left */
+  margin-left: 0; /* Remove negative margin */
 }
 
 .nav-logo img {
   width: 50px; /* Adjust logo size */
   height: 50px;
+  object-fit: contain; /* Ensure the logo scales properly */
 }
 
 /* Navbar Styles */
@@ -95,11 +96,11 @@ body {
 }
 
 .navbar-link {
-  font-weight: 400;
+  font-weight: 900; /* Make text bold */
   color: #fff !important;
   letter-spacing: 0.8px;
   padding: 0 25px;
-  font-size: 18px;
+  font-size: 14px; /* Reduced font size */
   opacity: 0.75;
   text-decoration: none;
   transition: opacity 0.3s ease;
@@ -247,15 +248,47 @@ body {
   height: 100%;
   object-fit: cover;
   z-index: -1;
+  opacity: 0.4; /* Adjust the value for translucency */
 }
 
-.home-content h1 {
+/* Home Content */
+.home-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 100%;
+  padding: 0 10%;
+  position: relative;
+  z-index: 2; /* Ensure it appears above the video */
+}
+
+.home-left {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.home-image {
+  max-width: 60%; /* Reduce the maximum width to 70% of its container */
+  height: auto; /* Maintain aspect ratio */
+  border-radius: 8px; /* Optional: Add rounded corners */
+}
+
+.home-right {
+  flex: 1;
+  color: #fff;
+  text-align: left;
+}
+
+.home-right h1 {
   font-size: 3rem;
   margin-bottom: 1rem;
 }
 
-.home-content p {
-  font-size: 1.5rem;
+.home-right p {
+  font-size: 1.2rem;
+  line-height: 1.5;
 }
 
 /* Services Section */

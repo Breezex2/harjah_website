@@ -35,7 +35,9 @@ const NavbarComponent = () => {
       <div className="container mx-auto flex items-center justify-between px-6 py-4">
         {/* Logo */}
         <div className="nav-logo">
-          <img src={Logo} alt="Logo" className="w-12 h-auto" />
+          <Link to="home" smooth spy duration={500}>
+            <img src={Logo} alt="Logo" className="w-12 h-auto" />
+          </Link>
         </div>
 
         {/* Navigation Links */}
