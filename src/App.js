@@ -58,7 +58,7 @@ const services = [
             Your browser does not support the video tag.
           </video>
           <div className="home-content">
-            <h1>Welcome to Our Company</h1>
+            <h1>Welcome to Harjah</h1>
             <p>We provide innovative solutions for your business needs</p>
           </div>
         </section>
