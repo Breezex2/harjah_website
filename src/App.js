@@ -1,17 +1,17 @@
 import React, { useState, useEffect } from "react";
-import { BrowserRouter as Router } from "react-router-dom"; // Import BrowserRouter
+import { BrowserRouter as Router } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
-import Navbar from "./components/NavBar"; // Ensure this path is correct
-import { FaEnvelope, FaPhoneAlt, FaMapMarkerAlt } from "react-icons/fa";
+import Navbar from "./components/NavBar";
 import AOS from "aos";
 import "aos/dist/aos.css";
+import { FaEnvelope, FaPhoneAlt, FaMapMarkerAlt } from "react-icons/fa";
 import webDevGif from "./assets/img/webDev.gif";
 import mobileDevGif from "./assets/img/mobileDev.gif";
 import uiDesignGif from "./assets/img/UI_design.gif";
+import homeImage from "./assets/img/desktop.avif";
 
 const App = () => {
-  const [language, setLanguage] = useState("en");
   const [hoveredIndex, setHoveredIndex] = useState(null);
 
   useEffect(() => {
@@ -20,12 +20,6 @@ const App = () => {
       easing: "ease-in-out",
     });
   }, []);
-
-  const toggleLanguage = () => {
-    setLanguage((prevLanguage) => (prevLanguage === "en" ? "ar" : "en"));
-    document.documentElement.lang = language === "en" ? "ar" : "en";
-    document.body.dir = language === "en" ? "rtl" : "ltr";
-  };
 
   const services = [
     {
@@ -50,9 +44,8 @@ const App = () => {
 
   return (
     <Router>
-      {/* Wrap everything inside BrowserRouter */}
       <div className="App">
-        <Navbar toggleLanguage={toggleLanguage} /> {/* Pass the function to Navbar */}
+        <Navbar />
 
         {/* Home Section */}
         <section id="home" className="section home-section">
@@ -60,9 +53,14 @@ const App = () => {
             <source src="/video.mp4" type="video/mp4" />
             Your browser does not support the video tag.
           </video>
-          <div className="home-content">
-            <h1>Welcome to Our Company</h1>
-            <p>We provide innovative solutions for your business needs</p>
+          <div className="home-container">
+            <div className="home-image">
+              <img src={homeImage} alt="Home" className="home-img" />
+            </div>
+            <div className="home-content">
+              <h1>Welcome to Harjah</h1>
+              <p>We provide innovative solutions for your business needs</p>
+            </div>
           </div>
         </section>
 
@@ -86,8 +84,8 @@ const App = () => {
                     hoveredIndex === index ? "visible" : ""
                   }`}
                 >
-                  {service.description}
-                  <div className="read-more">read more..</div>
+                  <p>{service.description}</p>
+                  <button className="read-more">Read More</button>
                 </div>
               </div>
             ))}
@@ -109,31 +107,46 @@ const App = () => {
                 solutions, we specialize in crafting cutting-edge websites, mobile
                 applications, and IT services tailored to meet modern market demands.
               </p>
+              <p>
+                Our expertise spans across various industries, helping startups, enterprises, 
+                and individuals build digital experiences that are scalable, secure, and user-friendly.
+              </p>
               <h3>Our Vision</h3>
               <p>
-                At Harjah, we believe technology should be an enabler, not a barrier.
-              </p>
-              <p>
-                Our vision is to empower businesses with seamless digital transformation
-                through intuitive design, robust development, and strategic IT consulting.
+                At Harjah, we believe technology should be an enabler, not a barrier. Our vision is 
+                to empower businesses with seamless digital transformation through intuitive design, 
+                robust development, and strategic IT consulting. We strive to bridge the gap between 
+                ideas and execution, ensuring that every solution we deliver drives measurable growth 
+                and efficiency.
               </p>
               <h3>Team</h3>
               <p>
-                We are a small but mighty team of two—skilled, passionate, and committed
-                to building impactful digital solutions.
+                We are a small but mighty team of two—skilled, passionate, and committed to building 
+                impactful digital solutions. With a blend of creativity, technical expertise, and 
+                problem-solving skills, we work closely with clients to transform their visions into 
+                reality. Our agility allows us to adapt quickly, innovate efficiently, and provide 
+                personalized attention to every project we undertake.
               </p>
               <h3>Why Us?</h3>
-              <p>
-                Tailored Solutions – Every business is unique, and so are our solutions.
-                We take the time to understand your needs and craft custom software that
-                fits your goals.
-              </p>
-              <p>
-                End-to-End Expertise – From design to deployment, we handle the entire
-                development lifecycle, ensuring high-quality results.
-              </p>
+              <ul>
+                <li>
+                  <strong>Tailored Solutions</strong> – Every business is unique, and so are our solutions. 
+                  We take the time to understand your needs and craft custom software that fits your goals.
+                </li>
+                <li>
+                  <strong>End-to-End Expertise</strong> – From design to deployment, we handle the entire 
+                  development lifecycle, ensuring high-quality results.
+                </li>
+                <li>
+                  <strong>Reliable & Scalable Technology</strong> – We use modern technologies and best 
+                  practices to build scalable and future-proof digital products.
+                </li>
+                <li>
+                  <strong>Commitment to Excellence</strong> – Despite being a small team, we deliver with 
+                  the efficiency and expertise of a large-scale company while maintaining a personalized approach.
+                </li>
+              </ul>
             </div>
-
             <div className="about-location">
               <h3>Location</h3>
               <iframe
@@ -171,25 +184,20 @@ const App = () => {
                   <FaPhoneAlt />
                   <span>+968 97760250</span>
                 </a>
-                <a
-                  href="https://maps.app.goo.gl/u4Ta3Kyhirgx4BDs8"
-                  className="contact-item"
-                >
+                <a href="https://maps.app.goo.gl/u4Ta3Kyhirgx4BDs8" className="contact-item">
                   <FaMapMarkerAlt />
                   <span>Our Office Location</span>
                 </a>
               </div>
             </div>
-
             <div className="contact-form-box">
-              <div className="contact-form">
+              <form className="contact-form">
                 <input type="text" placeholder="First Name" />
                 <input type="text" placeholder="Last Name" />
                 <input type="email" placeholder="Business Email" />
-                <input type="text" placeholder="Phone Number" />
                 <textarea placeholder="How can we help you?"></textarea>
-                <button className="get-in-touch-btn">Get in Touch</button>
-              </div>
+                <button className="get-in-touch-btn">Submit</button>
+              </form>
             </div>
           </div>
         </section>

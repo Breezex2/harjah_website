@@ -4,35 +4,32 @@ import { Link } from "react-scroll";
 
 const NavbarComponent = () => {
   const [scrolled, setScrolled] = useState(false);
-  const [activeLink, setActiveLink] = useState("home");
-  const [language, setLanguage] = useState("en");
+  const [language, setLanguage] = useState("English");
+
+  const toggleLanguage = () => {
+    const newLanguage = language === "English" ? "Arabic" : "English";
+    setLanguage(newLanguage);
+
+    // Update the page direction and language attribute
+    document.documentElement.lang = newLanguage === "English" ? "en" : "ar";
+    document.body.dir = newLanguage === "English" ? "ltr" : "rtl";
+  };
 
   useEffect(() => {
     const onScroll = () => {
       setScrolled(window.scrollY > 50);
     };
+
     window.addEventListener("scroll", onScroll);
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  const onUpdateActiveLink = (value) => {
-    setActiveLink(value);
-  };
-
-  const toggleLanguage = () => {
-    const newLanguage = language === "en" ? "ar" : "en";
-    setLanguage(newLanguage);
-    document.documentElement.lang = newLanguage;
-    document.body.dir = newLanguage === "en" ? "ltr" : "rtl";
-  };
-
   return (
     <nav
-      className={`navbar ${scrolled ? "scrolled" : ""} ${
-        language === "ar" ? "rtl" : "ltr"
-      }`}
+      id="navbar"
+      className={`navbar ${scrolled ? "sticky" : ""}`}
     >
-      <div className="container mx-auto flex items-center justify-between px-6 py-4">
+      <div className="container mx-auto flex items-center justify-between px-6">
         {/* Logo */}
         <div className="nav-logo">
           <Link to="home" smooth spy duration={500}>
@@ -41,34 +38,35 @@ const NavbarComponent = () => {
         </div>
 
         {/* Navigation Links */}
-        <ul className="nav-links flex items-center gap-8 text-white text-lg">
-          {[{ id: "home", label: "Home" }, { id: "services", label: "Services" }, { id: "about", label: "About Us" }, { id: "contact", label: "Get in Touch" }].map(
-            ({ id, label }) => (
-              <li key={id}>
-                <Link
-                  to={id}
-                  smooth
-                  spy
-                  duration={500}
-                  className={`navbar-link ${activeLink === id ? "active" : ""}`}
-                  onClick={() => onUpdateActiveLink(id)}
-                >
-                  {label}
-                </Link>
-              </li>
-            )
-          )}
+        <ul className="nav-links flex items-center gap-8 text-white font-bold ml-auto list-none">
+          {[
+            { id: "home", label: language === "English" ? "Home" : "الرئيسية" },
+            { id: "services", label: language === "English" ? "Services" : "الخدمات" },
+            { id: "about", label: language === "English" ? "About Us" : "معلومات عنا" },
+            { id: "contact", label: language === "English" ? "Get in Touch" : "تواصل معنا" },
+          ].map(({ id, label }) => (
+            <li key={id}>
+              <Link
+                to={id}
+                smooth
+                spy
+                duration={500}
+                className="navbar-link"
+                style={{ textDecoration: "none", color: "white" }}
+              >
+                {label}
+              </Link>
+            </li>
+          ))}
         </ul>
 
-        {/* Language Toggle Button */}
-        <div className="navbar-text flex items-center gap-4">
-          <button
-            onClick={toggleLanguage}
-            className="text-white border-2 border-white px-3 py-1 rounded-md hover:bg-white hover:text-black transition"
-          >
-            {language === "en" ? "Arabic" : "English"}
-          </button>
-        </div>
+        {/* Language Switch */}
+        <button
+          onClick={toggleLanguage}
+          className="language-switch text-white font-bold ml-4 px-4 py-2 bg-blue-500 rounded"
+        >
+          {language}
+        </button>
       </div>
     </nav>
   );
