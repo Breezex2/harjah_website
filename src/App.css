@@ -71,7 +71,7 @@ body.ltr {
 }
 
 .nav-logo img {
-  width: 50px; /* Adjust the size of the logo */
+  width: 70px; /* Adjust the size of the logo */
   height: auto;
   object-fit: contain;
 }
@@ -109,7 +109,8 @@ body.ltr {
   background-color: #007bff;
   color: white;
   border: none;
-  padding: 10px 20px;
+  font-size: small;
+  padding: 10px 20px; 
   border-radius: 5px;
   cursor: pointer;
   transition: background-color 0.3s ease;
@@ -208,15 +209,16 @@ body.ltr {
 
 /* Services Section */
 .services-section {
-  padding: 1rem 1rem; /* Keep the padding as is */
-  margin-top: -4; /* Remove or reduce the top margin */
+  padding: 1rem 1rem;
+  margin-top: -4;
   background-color: #f8f9fa;
   color: #333;
+  overflow: hidden; 
 }
 
 .services-section h2 {
-  padding-bottom: 2rem; /* Reduce the space below the heading */
-  font-size: 1.8rem; /* Reduce the font size of the heading */
+  padding-bottom: 2rem;
+  font-size: 1.8rem;
   text-align: center;
 }
 
@@ -228,6 +230,8 @@ body.ltr {
 
 .service-wrapper {
   position: relative;
+  width: 100%;
+  height: auto;
 }
 
 .service-card {
@@ -236,11 +240,14 @@ body.ltr {
   border-radius: 10px 10px 0 0;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   text-align: center;
-  transition: transform 0.3s ease;
+  transition: transform 0.3s ease-in-out;
+  position: relative;
+  z-index: 1;
+  transform: translateY(10px);
 }
 
-.service-card:hover {
-  transform: translateY(-2px);
+.service-wrapper:hover .service-card {
+  transform: translateY(0);
 }
 
 .service-gif {
@@ -255,7 +262,7 @@ body.ltr {
   font-size: 1.5rem;
 }
 
-/* Service Description (Initially Hidden) */
+/* Service Description */
 .service-description {
   width: 100%;
   background: rgba(29, 125, 125, 0.95);
@@ -266,10 +273,17 @@ body.ltr {
   opacity: 0;
   max-height: 0;
   overflow: hidden;
-  transition: max-height 0.3s ease-in-out, opacity 0.3s ease-in-out;
+  transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
   display: flex;
   flex-direction: column;
   align-items: center;
+  transform: translateY(-100px);
+}
+
+.service-wrapper:hover .service-description {
+  opacity: 1;
+  max-height: 100%;
+  transform: translateY(0);
 }
 
 .service-description p {
@@ -292,12 +306,6 @@ body.ltr {
 
 .read-more:hover {
   color: rgba(14, 96, 96, 0.985);
-}
-
-/* Show Description on Hover */
-.service-description.visible {
-  opacity: 1;
-  max-height: 100%;
 }
 
 /* About Section */

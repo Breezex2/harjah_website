@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
-import Logo from "../assets/img/CompanyLogo.png";
+// import Logo from "../assets/img/CompanyLogo.png";
+import Logo from "../assets/img/logo.svg";
 import { Link } from "react-scroll";
 
 const NavbarComponent = () => {
@@ -42,7 +43,7 @@ const NavbarComponent = () => {
           {[
             { id: "home", label: language === "English" ? "Home" : "الرئيسية" },
             { id: "services", label: language === "English" ? "Services" : "الخدمات" },
-            { id: "about", label: language === "English" ? "About Us" : "معلومات عنا" },
+            { id: "about", label: language === "English" ? "About Us" : "من نحن" },
             { id: "contact", label: language === "English" ? "Get in Touch" : "تواصل معنا" },
           ].map(({ id, label }) => (
             <li key={id}>
