@@ -1,17 +1,17 @@
 /************ Custom Font ************/
 @font-face {
   font-family: Centra;
-  src: url('./assets/font/CentraNo2-Bold.ttf');
+  src: url("./assets/font/CentraNo2-Bold.ttf");
   font-weight: 700;
 }
 @font-face {
   font-family: Centra;
-  src: url('./assets/font/CentraNo2-Medium.ttf');
+  src: url("./assets/font/CentraNo2-Medium.ttf");
   font-weight: 500;
 }
 @font-face {
   font-family: Centra;
-  src: url('./assets/font/CentraNo2-Book.ttf');
+  src: url("./assets/font/CentraNo2-Book.ttf");
   font-weight: 400;
 }
 
@@ -20,7 +20,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
 }
 
 html {
@@ -60,7 +60,12 @@ body.ltr {
 }
 
 .navbar.scrolled {
-  background-color: rgba(34, 34, 34, 0.9); /* Solid or semi-transparent on scroll */
+  background-color: rgba(
+    34,
+    34,
+    34,
+    0.9
+  ); /* Solid or semi-transparent on scroll */
   box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Add shadow on scroll */
 }
 
@@ -110,7 +115,7 @@ body.ltr {
   color: white;
   border: none;
   font-size: small;
-  padding: 10px 20px; 
+  padding: 10px 20px;
   border-radius: 5px;
   cursor: pointer;
   transition: background-color 0.3s ease;
@@ -124,11 +129,18 @@ body.ltr {
 /* Section styles */
 .section {
   min-height: 100vh;
-  padding: 6rem 2rem 4rem;
+  padding: 7rem 2rem 4rem;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  align-items: flex-start; /* Aligns content to the top */
+  justify-content: flex-start; /* Moves content to the top */
+}
+
+h2 {
+  padding-bottom: 2rem;
+  font-size: 2rem;
+  text-align: center;
+  margin-top: 0; /* Ensures it starts from the top */
 }
 
 /* Home section */
@@ -154,7 +166,7 @@ body.ltr {
 }
 
 .background-video::before {
-  content: '';
+  content: "";
   position: absolute;
   top: 0;
   left: 0;
@@ -209,17 +221,13 @@ body.ltr {
 
 /* Services Section */
 .services-section {
-  padding: 1rem 1rem;
-  margin-top: -4;
+  padding: 5rem 1rem 1rem; /* Add more padding at the top */
   background-color: #f8f9fa;
   color: #333;
-  overflow: hidden; 
-}
-
-.services-section h2 {
-  padding-bottom: 2rem;
-  font-size: 1.8rem;
-  text-align: center;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Centers content horizontally */
 }
 
 .services-grid {
@@ -310,15 +318,19 @@ body.ltr {
 
 /* About Section */
 .about-section {
-  padding: 4rem 2rem;
+  padding: 5rem 2rem;
   background-color: #121212;
   color: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .about-content {
   display: flex;
   flex-wrap: wrap;
   gap: 2rem;
+  padding: 3rem;
 }
 
 .about-details {
@@ -338,19 +350,28 @@ body.ltr {
 
 /* Contact Section */
 .contact-section {
-  padding: 4rem 2rem;
+  padding: 5rem 2rem;
   background-color: #f8f9fa;
   color: #333;
   margin-left: 30px; /* Add space to the left of the contact section */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .contact-container {
   display: flex;
   flex-wrap: wrap;
   gap: 2rem;
+  padding: 3rem;
 }
-
 .company-message {
+  padding: 3rem;
+}
+.company-message h3 {
+  padding: 1.5rem 0rem;
+}
+.company-message p {
   flex: 1;
 }
 

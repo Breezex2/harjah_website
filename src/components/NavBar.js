@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-// import Logo from "../assets/img/CompanyLogo.png";
 import Logo from "../assets/img/logo.svg";
 import { Link } from "react-scroll";
 
@@ -26,10 +25,7 @@ const NavbarComponent = () => {
   }, []);
 
   return (
-    <nav
-      id="navbar"
-      className={`navbar ${scrolled ? "sticky" : ""}`}
-    >
+    <nav id="navbar" className={`navbar ${scrolled ? "sticky" : ""}`}>
       <div className="container mx-auto flex items-center justify-between px-6">
         {/* Logo */}
         <div className="nav-logo">
@@ -42,9 +38,18 @@ const NavbarComponent = () => {
         <ul className="nav-links flex items-center gap-8 text-white font-bold ml-auto list-none">
           {[
             { id: "home", label: language === "English" ? "Home" : "الرئيسية" },
-            { id: "services", label: language === "English" ? "Services" : "الخدمات" },
-            { id: "about", label: language === "English" ? "About Us" : "من نحن" },
-            { id: "contact", label: language === "English" ? "Get in Touch" : "تواصل معنا" },
+            {
+              id: "services",
+              label: language === "English" ? "Services" : "الخدمات",
+            },
+            {
+              id: "about",
+              label: language === "English" ? "About Us" : "من نحن",
+            },
+            {
+              id: "contact",
+              label: language === "English" ? "Get in Touch" : "تواصل معنا",
+            },
           ].map(({ id, label }) => (
             <li key={id}>
               <Link

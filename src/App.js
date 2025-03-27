@@ -76,7 +76,11 @@ const App = () => {
                 onMouseLeave={() => setHoveredIndex(null)}
               >
                 <div className="service-card">
-                  <img src={service.gif} alt={service.title} className="service-gif" />
+                  <img
+                    src={service.gif}
+                    alt={service.title}
+                    className="service-gif"
+                  />
                   <h3>{service.title}</h3>
                 </div>
                 <div
@@ -100,50 +104,61 @@ const App = () => {
               <h3>Company Background</h3>
               <p>
                 Founded in the heart of Muscat, Harjah is a dynamic software
-                development company driven by a passion for technology and innovation.
+                development company driven by a passion for technology and
+                innovation.
               </p>
               <p>
-                Established with the vision of transforming businesses through digital
-                solutions, we specialize in crafting cutting-edge websites, mobile
-                applications, and IT services tailored to meet modern market demands.
+                Established with the vision of transforming businesses through
+                digital solutions, we specialize in crafting cutting-edge
+                websites, mobile applications, and IT services tailored to meet
+                modern market demands.
               </p>
               <p>
-                Our expertise spans across various industries, helping startups, enterprises, 
-                and individuals build digital experiences that are scalable, secure, and user-friendly.
+                Our expertise spans across various industries, helping startups,
+                enterprises, and individuals build digital experiences that are
+                scalable, secure, and user-friendly.
               </p>
               <h3>Our Vision</h3>
               <p>
-                At Harjah, we believe technology should be an enabler, not a barrier. Our vision is 
-                to empower businesses with seamless digital transformation through intuitive design, 
-                robust development, and strategic IT consulting. We strive to bridge the gap between 
-                ideas and execution, ensuring that every solution we deliver drives measurable growth 
-                and efficiency.
+                At Harjah, we believe technology should be an enabler, not a
+                barrier. Our vision is to empower businesses with seamless
+                digital transformation through intuitive design, robust
+                development, and strategic IT consulting. We strive to bridge
+                the gap between ideas and execution, ensuring that every
+                solution we deliver drives measurable growth and efficiency.
               </p>
               <h3>Team</h3>
               <p>
-                We are a small but mighty team of two—skilled, passionate, and committed to building 
-                impactful digital solutions. With a blend of creativity, technical expertise, and 
-                problem-solving skills, we work closely with clients to transform their visions into 
-                reality. Our agility allows us to adapt quickly, innovate efficiently, and provide 
-                personalized attention to every project we undertake.
+                We are a small but mighty team of two—skilled, passionate, and
+                committed to building impactful digital solutions. With a blend
+                of creativity, technical expertise, and problem-solving skills,
+                we work closely with clients to transform their visions into
+                reality. Our agility allows us to adapt quickly, innovate
+                efficiently, and provide personalized attention to every project
+                we undertake.
               </p>
               <h3>Why Us?</h3>
               <ul>
                 <li>
-                  <strong>Tailored Solutions</strong> – Every business is unique, and so are our solutions. 
-                  We take the time to understand your needs and craft custom software that fits your goals.
+                  <strong>Tailored Solutions</strong> – Every business is
+                  unique, and so are our solutions. We take the time to
+                  understand your needs and craft custom software that fits your
+                  goals.
                 </li>
                 <li>
-                  <strong>End-to-End Expertise</strong> – From design to deployment, we handle the entire 
-                  development lifecycle, ensuring high-quality results.
+                  <strong>End-to-End Expertise</strong> – From design to
+                  deployment, we handle the entire development lifecycle,
+                  ensuring high-quality results.
                 </li>
                 <li>
-                  <strong>Reliable & Scalable Technology</strong> – We use modern technologies and best 
-                  practices to build scalable and future-proof digital products.
+                  <strong>Reliable & Scalable Technology</strong> – We use
+                  modern technologies and best practices to build scalable and
+                  future-proof digital products.
                 </li>
                 <li>
-                  <strong>Commitment to Excellence</strong> – Despite being a small team, we deliver with 
-                  the efficiency and expertise of a large-scale company while maintaining a personalized approach.
+                  <strong>Commitment to Excellence</strong> – Despite being a
+                  small team, we deliver with the efficiency and expertise of a
+                  large-scale company while maintaining a personalized approach.
                 </li>
               </ul>
             </div>
@@ -172,8 +187,9 @@ const App = () => {
             <div className="company-message">
               <h3>Company Message</h3>
               <p>
-                We value your time and interest in our services. Please feel free to
-                reach out with any questions or requests.
+                We value your time and interest in our services.
+                <br /> Please feel free to reach out with any questions or
+                requests.
               </p>
               <div className="social-icons">
                 <a href="mailto:info@company.com" className="contact-item">
@@ -184,7 +200,10 @@ const App = () => {
                   <FaPhoneAlt />
                   <span>+968 97760250</span>
                 </a>
-                <a href="https://maps.app.goo.gl/u4Ta3Kyhirgx4BDs8" className="contact-item">
+                <a
+                  href="https://maps.app.goo.gl/u4Ta3Kyhirgx4BDs8"
+                  className="contact-item"
+                >
                   <FaMapMarkerAlt />
                   <span>Our Office Location</span>
                 </a>
