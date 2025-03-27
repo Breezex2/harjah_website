@@ -43,7 +43,7 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 10px 10%; /* Reduced padding to decrease height */
+  padding: 2px; /* Reduced padding to decrease height */
   background-color: #121212;
   z-index: 1000;
   transition: 0.3s ease-in-out;
@@ -60,6 +60,7 @@ body {
   align-items: center;
   margin-right: 0; /* Remove extra space on the right */
   margin-left: -10%; /* Move the logo further to the left */
+  width: 9%;
 }
 
 .nav-logo img {
@@ -67,24 +68,6 @@ body {
   height: 50px;
 }
 
-/* Navbar Styles */
-.navbar {
-  padding: 18px 0;
-  position: fixed;
-  width: 100%;
-  top: 0;
-  z-index: 9999;
-  transition: 0.32s ease-in-out;
-}
-
-.navbar.scrolled {
-  padding: 0px 0;
-  background-color: #121212;
-}
-
-.nav-logo {
-  width: 9%;
-}
 
 .nav-links {
   display: flex;
@@ -95,11 +78,11 @@ body {
 }
 
 .navbar-link {
-  font-weight: 400;
+  font-weight: 450;
   color: #fff !important;
   letter-spacing: 0.8px;
   padding: 0 25px;
-  font-size: 18px;
+  font-size: 16px;
   opacity: 0.75;
   text-decoration: none;
   transition: opacity 0.3s ease;
@@ -260,7 +243,7 @@ body {
 
 /* Services Section */
 .services-section {
-  padding: 4rem 2rem;
+  padding: 10rem 2rem;
   background-color: #f8f9fa;
   color: #333;
 }
