@@ -5,6 +5,7 @@ import { Link } from "react-scroll";
 const NavbarComponent = () => {
   const [scrolled, setScrolled] = useState(false);
   const [language, setLanguage] = useState("English");
+  const [activeLink, setActiveLink] = useState("home");
 
   const toggleLanguage = () => {
     const newLanguage = language === "English" ? "Arabic" : "English";
@@ -51,14 +52,15 @@ const NavbarComponent = () => {
               label: language === "English" ? "Get in Touch" : "تواصل معنا",
             },
           ].map(({ id, label }) => (
-            <li key={id}>
+            <li key={id} className={activeLink === id ? "active" : ""}>
               <Link
                 to={id}
                 smooth
                 spy
                 duration={500}
                 className="navbar-link"
-                style={{ textDecoration: "none", color: "white" }}
+                style={{ textDecoration: "none", color: "white", cursor: "pointer" }}
+                onClick={() => setActiveLink(id)}
               >
                 {label}
               </Link>

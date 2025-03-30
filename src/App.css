@@ -48,7 +48,7 @@ body.ltr {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 15px 20px;
+  padding: 10px 20px;
   background-color: transparent; /* Transparent by default */
   color: white;
   position: fixed;
@@ -90,6 +90,8 @@ body.ltr {
 
 .nav-links li {
   display: inline;
+  text-align: center;
+  transition: background-position-x 0.5s linear;
 }
 
 .nav-links a {
@@ -97,13 +99,31 @@ body.ltr {
   color: white;
   padding: 10px;
   font-weight: bold; /* Makes the text bold */
+  font-size: 18px;
+  transition: all 0.2s;
 }
 
-.nav-links a:hover {
-  background-color: #555;
-  border-radius: 5px;
+.nav-links li:hover {
+  background: linear-gradient(to right, transparent, rgba(0, 128, 128, 0.7), transparent); /* Teal gradient */
+  background-size: 200% 100%;
+  /* background: url("./assets/img/nav-animation.svg");
+  animation: line 10s ease-in-out infinite alternate; */
+  animation: line 1.5s ease-in-out infinite alternate;
+
 }
 
+.nav-links li:not(:last-child) {
+  margin-right: 30px;
+}
+
+@keyframes line {
+  0% {
+    background-position-x: 200%;
+  }
+  100% {
+    background-position-x: 0%;
+  }
+}
 .sticky {
   background-color: #222;
   box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
@@ -111,19 +131,21 @@ body.ltr {
 
 /* Language switch button */
 .language-switch {
-  background-color: #007bff;
+  background-color: rgb(29, 125, 125);
   color: white;
   border: none;
-  font-size: small;
-  padding: 10px 20px;
-  border-radius: 5px;
+  font-size: 12px; /* Reduce font size */
+  padding: 2px 5px;  /* Smaller padding */
+  border-radius: 3px; /* Smaller border-radius */
   cursor: pointer;
   transition: background-color 0.3s ease;
-  margin-right: 40px; /* Add space to the right of the button */
+  margin-left: auto; /* Push the button to the end */
 }
 
 .language-switch:hover {
-  background-color: #0056b3;
+  color: rgb(29, 125, 125) !important;
+  background-color: white;
+  /* font-weight: bold; */
 }
 
 /* Section styles */
