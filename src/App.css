@@ -420,7 +420,7 @@ h2 {
 .contact-form-box {
   flex: 1;
   background: #fff;
-  padding: 2rem;
+  padding: 1.5rem;
   border-radius: 10px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
@@ -437,7 +437,22 @@ h2 {
 .contact-form textarea {
   height: 150px;
 }
+.get-in-touch-btn {
+  color: white;
+  border-color:  rgb(29, 125, 125);
+  background-color: rgb(119, 171, 171);
+  font-size: 15px; 
+  padding: 7px 10px;  
+  border-radius: 4px; 
+  cursor: pointer;
+  
+}
+.get-in-touch-btn:hover {
+  background-color: rgb(29, 125, 125);
+  color: white;
+  transition: background-color 0.3s ease;
 
+}
 /* Footer */
 footer {
   background-color: #000;
