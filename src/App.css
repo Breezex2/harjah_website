@@ -464,8 +464,9 @@ h2 {
   color: #fff;
   padding: 30px 20px;
   display: flex;
-  justify-content: space-between; /* Space between left and right content */
-  align-items: center;
+  justify-content: space-between;
+  align-items: flex-end; /* Align items at the bottom */
+  position: relative;
 }
 
 .footer-left {
@@ -516,20 +517,22 @@ h2 {
   transform: rotateY(360deg);
 }
 
-/* Ensure the text is centered at the bottom
+/* Align copyright text to the bottom right */
 .footer p {
-  margin: 0;
+  margin: 10px;
   font-size: 14px;
-  text-align: center;
-  flex-grow: 1; /* Push the text to the center *
-} */
+  position: absolute;
+  right: 20px;
+  bottom: 10px;
+}
 
-.footer p {
+
+/* .footer p {
   margin: 0;
   padding-bottom: 2px;
   font-size: 14px;
   color: #fff;
-}
+} */
 
 /* .social-contact-icons {
   display: flex;
