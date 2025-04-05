@@ -522,10 +522,9 @@ h2 {
 
 /* Align copyright text to the bottom right */
 .footer p {
-  margin: 10px 40px 40px 5px;
+  margin: 10px 5px 5px 5px;
   font-size: 14px;
   position: flexible;
-
 
 }
 
