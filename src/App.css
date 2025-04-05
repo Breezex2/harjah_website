@@ -76,7 +76,7 @@ body.ltr {
 }
 
 .nav-logo img {
-  width: 70px; /* Adjust the size of the logo */
+  width: 50px; /* Adjust the size of the logo */
   height: auto;
   object-fit: contain;
 }
@@ -98,22 +98,24 @@ body.ltr {
   text-decoration: none;
   color: white;
   padding: 10px;
-  font-weight: bold; /* Makes the text bold */
-  font-size: 18px;
+  font-size: 16px;
   transition: all 0.2s;
 }
 
-.nav-links li:hover {
+/* .nav-links li:hover {
   background: linear-gradient(
     to right,
     transparent,
     rgba(0, 128, 128, 0.7),
     transparent
-  ); /* Teal gradient */
+  );
   background-size: 200% 100%;
   /* background: url("./assets/img/nav-animation.svg");
-  animation: line 10s ease-in-out infinite alternate; */
+  animation: line 10s ease-in-out infinite alternate; *
   animation: line 1.5s ease-in-out infinite alternate;
+} */
+.nav-links li:hover a{
+  color: rgb(29, 125, 125) !important;
 }
 
 .nav-links li:not(:last-child) {
@@ -462,7 +464,7 @@ h2 {
 .footer {
   background-color: #121212;
   color: #fff;
-  padding: 30px 20px;
+  padding: 20px 30px 20px 30px;
   display: flex;
   justify-content: space-between;
   align-items: flex-end; /* Align items at the bottom */
@@ -478,7 +480,8 @@ h2 {
 .footer img {
   width: 100px;
   height: auto;
-  margin-bottom: 10px;
+  margin-bottom: 20px;
+  margin-top: 0px;
 }
 
 .social-contact-icons {
@@ -519,11 +522,11 @@ h2 {
 
 /* Align copyright text to the bottom right */
 .footer p {
-  margin: 10px;
+  margin: 10px 40px 40px 5px;
   font-size: 14px;
-  position: absolute;
-  right: 20px;
-  bottom: 10px;
+  position: flexible;
+
+
 }
 
 
