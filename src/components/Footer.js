@@ -7,11 +7,6 @@ export const Footer = () => {
     <footer className="footer">
       <div className="footer-left">
         <img src={logo} alt="Company Logo" />
-        <p class="footer-description">
-          “Where Ideas Become Intelligent Solutions.” <br/> We transform your vision
-          into powerful, user-friendly applications designed to elevate your
-          business.
-        </p>
         <ul className="social-contact-icons">
           <li>
             <a
@@ -46,9 +41,12 @@ export const Footer = () => {
             </a>
           </li>
         </ul>
+      <hr class="mb-7" />
+      <div class="text-center p-3 border-top border-white">
+      © 2024 Copyright:  
+      <a class="text-white" href="https://harjah.com/">Harjah.com</a>
       </div>
-
-      <p>Copyright 2024. All Rights Reserved</p>
+      </div>
     </footer>
   );
 };
