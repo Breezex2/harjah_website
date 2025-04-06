@@ -22,7 +22,7 @@ const HomeSection = () => {
           scaleMobile: 1.0,
           color: 0x38c3b0,
           color2: 0xe4e4e6,
-          backgroundColor: 0x1e153c,
+          backgroundColor: 0x29292f,
         })
       );
     }
