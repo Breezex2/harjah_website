@@ -41,8 +41,8 @@ export const Footer = () => {
             </a>
           </li>
         </ul>
-      <hr class="mb-7" />
-      <div class="text-center p-3 border-top border-white">
+      {/* <hr class="mb-7" />  this is a gap */}
+      <div class="Copyright">
       © 2024 Copyright:  
       <a class="text-white" href="https://harjah.com/">Harjah.com</a>
       </div>

@@ -19,6 +19,7 @@ const HomeSection = () => {
           minHeight: 200.0,
           minWidth: 200.0,
           scale: 1.0,
+          size: 1.60,
           scaleMobile: 1.0,
           color: 0x38c3b0,
           color2: 0xe4e4e6,
